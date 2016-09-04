@@ -11,7 +11,9 @@ var button = document.getElementById("button");
 	statsBox.setAttribute("id", "stats-box");
 	var sparks = document.createElement("P");
 	var level = document.createElement("P");
+	var register = document.createElement("P");
 	var userE = document.createElement("H2");
+	
 
 button.onclick= function() {
 	var user = document.getElementById("input").value;
@@ -24,11 +26,13 @@ button.onclick= function() {
 	} else {
 		sparks.innerHTML = "Sparks: " + jsonData.user.sparks;
 		level.innerHTML = "Level: " + jsonData.user.level;
+		register.innerHTML = "Joined: " + jsonData.user.createdAt.substring(0, 10);
 		userE.innerHTML = jsonData.user.username;
 		
 		statsBox.appendChild(userE);
-		statsBox.appendChild(sparks);
 		statsBox.appendChild(level);
+		statsBox.appendChild(sparks);
+		statsBox.appendChild(register);
 		
 		document.getElementById("result").appendChild(statsBox);
 	}
